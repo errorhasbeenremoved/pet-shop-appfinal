@@ -1,4 +1,37 @@
+
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Зоомаркет</title><script>
-(function(){var l=window.location;var base='/';var p=l.pathname;var known=['products','brands','categories','suppliers','customers','admin','login','register','forbidden'];var first=p.split('/').filter(Boolean)[0];if(known.indexOf(first)>=0){sessionStorage.setItem('petshop_redirect',p+l.search+l.hash);l.replace(base+'?redirect='+encodeURIComponent(p+l.search+l.hash));}})();
-</script></head><body><p>Страница не найдена. <a href="./">На главную</a></p></body></html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зоомаркет</title>
+  <script>
+    (function () {
+      var base = '/pet-shop-appfinal/';
+      var path = window.location.pathname;
+
+      if (path.indexOf(base) !== 0) {
+        document.write('<p>Страница не найдена.</p>');
+        return;
+      }
+
+      var route = path.slice(base.length);
+      var known = [
+        'products', 'brands', 'categories', 'suppliers',
+        'customers', 'admin', 'login', 'register', 'forbidden'
+      ];
+      var first = route.split('/').filter(Boolean)[0];
+
+      if (known.indexOf(first) !== -1) {
+        var destination = base + '?redirect=' +
+          encodeURIComponent('/' + route + window.location.search + window.location.hash);
+        window.location.replace(destination);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Страница не найдена. <a href="/pet-shop-appfinal/">На главную</a></p>
+</body>
+</html>
+

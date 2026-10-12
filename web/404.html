@@ -4,34 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Зоомаркет</title>
-  <script>
-    (function () {
-      var base = '/pet-shop-appfinal/';
-      var path = window.location.pathname;
+  <title>404 — Страница не найдена | Зоомаркет</title>
+  <style>
+    * { box-sizing: border-box; }
 
-      if (path.indexOf(base) !== 0) {
-        document.write('<p>Страница не найдена.</p>');
-        return;
-      }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      color: #263238;
+      background: #f5f8f5;
+      text-align: center;
+    }
 
-      var route = path.slice(base.length);
-      var known = [
-        'products', 'brands', 'categories', 'suppliers',
-        'customers', 'admin', 'login', 'register', 'forbidden'
-      ];
-      var first = route.split('/').filter(Boolean)[0];
+    .card {
+      max-width: 520px;
+      padding: 48px 32px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .08);
+    }
 
-      if (known.indexOf(first) !== -1) {
-        var destination = base + '?redirect=' +
-          encodeURIComponent('/' + route + window.location.search + window.location.hash);
-        window.location.replace(destination);
-      }
-    })();
-  </script>
+    .emoji { font-size: 64px; }
+
+    h1 {
+      margin: 12px 0;
+      font-size: 76px;
+      color: #39845a;
+    }
+
+    h2 { margin: 0 0 16px; }
+
+    p {
+      color: #68756d;
+      line-height: 1.6;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      background: #39845a;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover { background: #286b45; }
+  </style>
 </head>
 <body>
-  <p>Страница не найдена. <a href="/pet-shop-appfinal/">На главную</a></p>
+  <main class="card">
+    <div class="emoji">🐾</div>
+    <h1>404</h1>
+    <h2>Ой! Страничка потерялась</h2>
+    <p>Кажется, наш питомец убежал не по той ссылке. Давай вернёмся в зоомаркет!</p>
+    <a href="/pet-shop-appfinal/">Вернуться на главную</a>
+  </main>
 </body>
 </html>
 
